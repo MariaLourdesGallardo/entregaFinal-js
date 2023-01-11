@@ -30,8 +30,20 @@ productosTienda.forEach( (element) =>{
         `
         boxCards.append(card)
 
-        card.addEventListener("click", (e) =>{
-            if(e.target.classList.contains("btn-primary")){
+
+
+
+    card.addEventListener("click", (e) =>{
+        if(e.target.classList.contains("btn-primary")){
+            const repeat = carrito.some ( (el)=> el.id === element.id )
+            
+            if (repeat){
+                carrito.map ((prod)=>{
+                    if(prod.id === element.id){
+                        prod.cantidad++
+                    }
+                })
+            }else{
                 carrito.push({
                     id: element.id,
                     img: element.img,
@@ -40,14 +52,31 @@ productosTienda.forEach( (element) =>{
                     descripcion1: element.descripcion1,
                     precio: element.precio,
                     cantidad: element.cantidad
-                })
-                subirAlLs("productos",carrito)
+                    })
+
+                }
+
+
+            subirAlLs("productos",carrito)
+
+
     
-            }
-            console.log(carrito)
-        })
-} )
+        }
+            
+    })
+})
 
 const carritoModificado = bajarDelLs("productos")
 
 carrito = carritoModificado
+console.log(carritoModificado)
+
+// const repeat = carrito.some ( (el)=> el.id === element.id )
+            
+// if (repeat) {
+//     carrito.map ( (producto) =>{
+//         if (producto.id === element.id){
+//             element.cantidad++
+           
+//         }
+//     } )
