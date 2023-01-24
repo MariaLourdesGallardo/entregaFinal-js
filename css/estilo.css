@@ -41,10 +41,10 @@ nav{
     display: flex;
     float: right;
     flex-wrap: wrap;
-    
+    color:rgb(219, 230, 148) ;
     padding: 2rem;
-    background: linear-gradient(90deg, rgba(111,134,0,1) 24%, rgba(219,255,0,1) 47%, rgba(32,48,187,1) 76%);
-    text-shadow: 0.2em 0.5em 0.1em #600, -0.3em 0.1em 0.1em #060, 0.4em -0.3em 0.1em #006;
+    background: linear-gradient(90deg, rgba(111,134,0,1) 24%, rgba(219,255,0,1) 47%, rgb(148, 160, 90) 76%);
+    text-shadow: 0.2em 0.5em 0.1em rgb(176, 159, 45), -0.3em 0.1em 0.1em rgb(209, 219, 136), 0.4em -0.3em 0.1em rgb(54, 67, 13);
     font-family: monospace;
     white-space: nowrap;
     border-right: 4px solid;

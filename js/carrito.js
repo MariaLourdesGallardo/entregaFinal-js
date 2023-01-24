@@ -16,23 +16,6 @@ let carrito = bajarDelLs("productos")
 console.log(carrito)
 
 
-// const modalHeader = document.createElement("div")
-// modalHeader.className = "modal-header"
-// modalHeader.innerHTML = `
-//     <h1 class= "modal-header-title"> Mi Carrito </h1>
-// ` 
-// modalContainer.appendChild(modalHeader)
-
-// const modalButton = document.createElement("h2")
-// modalButton.className = "modal-header-button"
-// modalButton.innerText = " X "
-
-// modalHeader.append(modalButton)
-
-// modalButton.addEventListener("click", () =>{
-//     modalContainer.style.display = "none"
-//     window.location.href = "../index.html"
-// })
 
 
 const cards = ( array ) =>{
@@ -71,20 +54,22 @@ const cards = ( array ) =>{
     }, "")
     // console.log(nodos)
     modalContainer.innerHTML = nodos
+    
+    let total = carrito.reduce( (acc,el) => acc + el.precio * el.cantidad, 0)
+    total = Math.round(total)
+    
+    const modalTotal = document.createElement("div")
+    modalTotal.className = "total-content"
+    modalTotal.innerHTML = `
+        Total a pagar: ${total} <span>€</span>
+        `
+    modalContainer.append(modalTotal)
 }
 
 cards(carrito)
 
 
 
-let total = carrito.reduce( (acc,el) => acc + el.precio * el.cantidad, 0)
-total = Math.round(total)
-const modalTotal = document.createElement("div")
-modalTotal.className = "total-content"
-modalTotal.innerHTML = `
-    Total a pagar: ${total} <span>€</span>
-    `
-modalContainer.append(modalTotal)
 
 
 
@@ -111,7 +96,10 @@ modalContainer.addEventListener("click", (e) =>{
     if(e.target.classList.contains("btn-danger")){
         // console.log(e.target.id)
         eliminarProducto()
-        cards(carrito)   
+        cards(carrito) 
+       
+    }else if (e.target.classList.contains("btn-primary")){
+        swal("Muchas Gracias por su Compra")
     }
 })
 

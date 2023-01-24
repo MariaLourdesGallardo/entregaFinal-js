@@ -55,7 +55,8 @@ const tienda = async () =>{
                             descripcion1: element.descripcion1,
                             precio: element.precio,
                             cantidad: element.cantidad
-                        })  
+                        })
+                        notifAgregarAlCarrito ("ha agregado un producto a su carrito")  
 
                     }
                     subirAlLs("productos",carrito)
@@ -76,3 +77,11 @@ const carritoModificado = bajarDelLs("productos")
 carrito = carritoModificado
 console.log(carritoModificado)
 
+
+const notifAgregarAlCarrito = ( texto ) =>{
+    Toastify({
+            text: texto,
+            duration: 2000,
+            close: true
+        }).showToast()
+}
