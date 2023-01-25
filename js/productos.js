@@ -8,16 +8,16 @@ const bajarDelLs = (key) =>{
     return JSON.parse(localStorage.getItem(key)) || [] 
 } 
 
-
-
 let carrito = []
+
+
 
 const tienda = async () =>{
     
     try {
     const respuesta = await fetch ("https://63ce6953d2e8c29a9bd5f4c8.mockapi.io/api/productos")
     const data = await respuesta.json()
-    console.log(data)
+    // console.log(data)
     data.forEach( (element) =>{
         const card = document.createElement("div")
             card.className = "tarjeta text-center"
@@ -75,7 +75,7 @@ tienda()
 const carritoModificado = bajarDelLs("productos")
 
 carrito = carritoModificado
-console.log(carritoModificado)
+// console.log(carritoModificado)
 
 
 const notifAgregarAlCarrito = ( texto ) =>{
@@ -85,3 +85,4 @@ const notifAgregarAlCarrito = ( texto ) =>{
             close: true
         }).showToast()
 }
+

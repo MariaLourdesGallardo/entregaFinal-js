@@ -13,7 +13,7 @@ const subirAlLs = (key,valor) =>{
 
 let carrito = bajarDelLs("productos")
 
-console.log(carrito)
+// console.log(carrito)
 
 
 
@@ -46,7 +46,7 @@ const cards = ( array ) =>{
             
                 </div>
     
-                <div class="card-footer text-muted">
+                <div class="card-footer ">
                     *Productos incluidos en el envío gratuito a domicilio por compras superiores a 30€
                 </div>
             </div>
@@ -54,6 +54,7 @@ const cards = ( array ) =>{
     }, "")
     // console.log(nodos)
     modalContainer.innerHTML = nodos
+    
     
     let total = carrito.reduce( (acc,el) => acc + el.precio * el.cantidad, 0)
     total = Math.round(total)
@@ -67,12 +68,6 @@ const cards = ( array ) =>{
 }
 
 cards(carrito)
-
-
-
-
-
-
 
 
 

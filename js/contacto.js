@@ -8,7 +8,7 @@ const mensaje = document.querySelector("#form_mensaje")
 
 for (let i = 0; i < inputs.length; i++){
     inputs[i].addEventListener("keyup", function (){
-        if(this.value.length>=1){
+        if(this.value.length >=1 ){
             this.nextElementSibling.classList.add("fijar")
         }else{
             this.nextElementSibling.classList.remove("fijar")
@@ -19,7 +19,7 @@ for (let i = 0; i < inputs.length; i++){
 enviarForm.onsubmit = (e)=>{
     e.preventDefault()
     if (nombres.value === ""  || mensaje.value === "" || telefono.value === "" || email.value === ""){
-        swal("debe completar todos los campos")
+        swal("Debe completar todos los campos")
         
     }else{
         swal("Su formulario ha sido enviado con éxito")    
